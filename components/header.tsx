@@ -26,7 +26,7 @@ const Header = ({}: HeaderProps) => {
             alt: 'Instagram',
             iconSrc: '/static/facebook-logo.svg',
         },
-        { href: `${CONFIG.vkLink}`, id: 1, alt: 'Instagram', iconSrc: '' },
+        { href: `${CONFIG.vkLink}`, id: 1, alt: 'Instagram', iconSrc: '/static/vk-logo.svg' },
     ]
     return (
         <div className={styles.container}>

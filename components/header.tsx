@@ -31,6 +31,13 @@ const Header = ({}: HeaderProps) => {
     return (
         <div className={styles.container}>
             <h1>{name}</h1>
+            {SOCIAL_MEDIA_BUTTONS.map(item => {
+                return (
+                    <button key={item.id}>
+                        <img src={item.iconSrc} alt={item.alt} />
+                    </button>
+                )
+            })}
         </div>
     )
 }

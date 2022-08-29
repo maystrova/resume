@@ -1,10 +1,7 @@
+import style from 'styles/icon.module.scss'
+
 export enum ICON_SIZE {
-    XX_SMALL = 'xx-small',
-    X_SMALL = 'x-small',
     SMALL = 'small',
-    MEDIUM = 'medium',
-    BIG = 'big',
-    LARGE = 'large',
 }
 
 interface IconProps {
@@ -13,8 +10,16 @@ interface IconProps {
     size: ICON_SIZE
 }
 
+const iconSizeHandler = (size: ICON_SIZE): string => {
+    switch (size) {
+        case ICON_SIZE.SMALL:
+            return style.small
+    }
+    return style.small
+}
+
 const Icon = ({ src, alt, size }: IconProps) => {
-    return <img src={src} alt={alt} />
+    return <img src={src} alt={alt} className={iconSizeHandler(size)} />
 }
 
 export default Icon

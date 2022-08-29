@@ -1,0 +1,12 @@
+$small: 20px;
+
+.main {
+    display: block;
+}
+
+.small {
+    width: $small;
+    height: $small;
+
+    @extend .main;
+}

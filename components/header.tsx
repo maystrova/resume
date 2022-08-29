@@ -1,5 +1,6 @@
 import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
+import Icon, { ICON_SIZE } from './icon'
 
 interface HeaderProps {}
 
@@ -34,7 +35,7 @@ const Header = ({}: HeaderProps) => {
             {SOCIAL_MEDIA_BUTTONS.map(item => {
                 return (
                     <button key={item.id}>
-                        <img src={item.iconSrc} alt={item.alt} />
+                        <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.SMALL} />
                     </button>
                 )
             })}

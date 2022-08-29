@@ -1,7 +1,7 @@
 import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
-import Icon, { ICON_SIZE } from './icon'
-import Button from './button'
+import Icon, { ICON_SIZE } from 'components/icon'
+import Button from 'components/button'
 
 interface HeaderProps {}
 
@@ -11,6 +11,11 @@ interface SocialMediaLinks {
     href: string
     iconSrc: string
     alt: string
+    id: number
+}
+
+interface HeaderMenu {
+    title: string
     id: number
 }
 
@@ -30,6 +35,13 @@ const Header = ({}: HeaderProps) => {
         },
         { href: `${CONFIG.vkLink}`, id: 1, alt: 'Instagram', iconSrc: '/static/vk-logo.svg' },
     ]
+
+    const MENU: HeaderMenu[] = [
+        { title: 'Home', id: 1 },
+        { title: 'About', id: 2 },
+        { title: 'Photo', id: 3 },
+        { title: 'Projects', id: 4 },
+    ]
     return (
         <div className={styles.container}>
             <div>
@@ -37,10 +49,19 @@ const Header = ({}: HeaderProps) => {
                 <h3>Pianist</h3>
             </div>
             <div>
+                <ul className={styles.menu}>
+                    {MENU.map(item => {
+                        return <li key={item.id}>{item.title}</li>
+                    })}
+                </ul>
+            </div>
+            <div>
                 {SOCIAL_MEDIA_BUTTONS.map(item => {
                     return (
                         <Button onClick={() => {}} key={item.id}>
-                            <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.SMALL} />
+                            <a href={item.href} target="_blank">
+                                <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.SMALL} />
+                            </a>
                         </Button>
                     )
                 })}

@@ -6,8 +6,8 @@ export type Config = {
 }
 
 export const CONFIG: Config = {
-    facebookLink: '',
+    facebookLink: 'https://www.facebook.com/popova.ksenia.9',
     siteName: 'Ksenia Popova',
-    instagramLink: '',
-    vkLink: '',
+    instagramLink: 'https://www.instagram.com/nemoy_kot/',
+    vkLink: 'https://www.vk.com/popova.ksenia/',
 }

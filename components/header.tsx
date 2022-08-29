@@ -1,6 +1,7 @@
 import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
 import Icon, { ICON_SIZE } from './icon'
+import Button from './button'
 
 interface HeaderProps {}
 
@@ -31,14 +32,19 @@ const Header = ({}: HeaderProps) => {
     ]
     return (
         <div className={styles.container}>
-            <h1>{name}</h1>
-            {SOCIAL_MEDIA_BUTTONS.map(item => {
-                return (
-                    <button key={item.id}>
-                        <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.SMALL} />
-                    </button>
-                )
-            })}
+            <div>
+                <h1>{name}</h1>
+                <h3>Pianist</h3>
+            </div>
+            <div>
+                {SOCIAL_MEDIA_BUTTONS.map(item => {
+                    return (
+                        <Button onClick={() => {}} key={item.id}>
+                            <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.SMALL} />
+                        </Button>
+                    )
+                })}
+            </div>
         </div>
     )
 }

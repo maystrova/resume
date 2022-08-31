@@ -1,12 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from 'styles/homePage.module.scss'
 import Header from 'components/header'
-import { getStorage, ref, getDownloadURL } from 'firebase/storage'
+import { getFileFromStorage } from '../service/storage'
 
 interface HomePageProps {}
 
 const HomePage = ({}: HomePageProps) => {
-    const [profilePhoto, setProfilePhoto] = useState<string>('/static/homePagePhoto2.PNG')
+    const [profilePhoto, setProfilePhoto] = useState<string>('')
+
+    useEffect(() => {
+        initImages()
+    }, [])
+
+    const initImages = async () => {
+        try {
+            const serverImage = await getFileFromStorage('/IMG_0838.PNG')
+            if (serverImage) {
+                setProfilePhoto(serverImage)
+            } else {
+                setProfilePhoto('/static/homePagePhoto2.PNG')
+            }
+        } catch (error) {
+            console.error('initImages', error)
+            setProfilePhoto('/static/homePagePhoto2.PNG')
+        }
+    }
 
     return (
         <div className={styles.container}>

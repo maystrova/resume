@@ -5,7 +5,7 @@ import Button from 'components/button'
 
 interface HeaderProps {}
 
-const name: string = 'Ksenia Popova'
+const name: string = 'Kseniia Popova'
 
 interface SocialMediaLinks {
     href: string

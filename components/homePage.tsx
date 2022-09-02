@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from 'styles/homePage.module.scss'
 import Header from 'components/header'
-import { getFileFromStorage } from '../service/storage'
+import { getFileFromStorage } from 'service/storage'
+import Image from 'next/image'
 
 interface HomePageProps {}
 
@@ -14,7 +15,7 @@ const HomePage = ({}: HomePageProps) => {
 
     const initImages = async () => {
         try {
-            const serverImage = await getFileFromStorage('/IMG_0838.PNG')
+            const serverImage = await getFileFromStorage('/IMG_0841.PNG')
             if (serverImage) {
                 setProfilePhoto(serverImage)
             } else {
@@ -29,7 +30,7 @@ const HomePage = ({}: HomePageProps) => {
     return (
         <div className={styles.container}>
             <Header />
-            <img className={styles.homePagePhoto} src={profilePhoto} alt="" />
+            <img src={profilePhoto} alt="photo" className={styles.homePagePhoto} />
         </div>
     )
 }

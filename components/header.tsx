@@ -5,8 +5,6 @@ import Button from 'components/button'
 
 interface HeaderProps {}
 
-const name: string = 'Kseniia Popova'
-
 interface SocialMediaLinks {
     href: string
     iconSrc: string
@@ -42,11 +40,15 @@ const Header = ({}: HeaderProps) => {
         { title: 'Photo', id: 3 },
         { title: 'Projects', id: 4 },
     ]
+
+    const name: string = 'Kseniia Popova'
+    const prof: string = 'Pianist'
+
     return (
         <div className={styles.container}>
-            <div>
-                <h1>{name}</h1>
-                <h3>Pianist</h3>
+            <div className={styles.logo}>
+                <h1 className={styles.name}>{name}</h1>
+                <h3 className={styles.prof}>{prof}</h3>
             </div>
             <div>
                 <ul className={styles.menu}>

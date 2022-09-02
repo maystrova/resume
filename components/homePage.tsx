@@ -3,6 +3,7 @@ import styles from 'styles/homePage.module.scss'
 import Header from 'components/header'
 import { getFileFromStorage } from 'service/storage'
 import Image from 'next/image'
+import Footer from './footer'
 
 interface HomePageProps {}
 
@@ -27,10 +28,18 @@ const HomePage = ({}: HomePageProps) => {
         }
     }
 
+    const quote: string = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at corporis
+        debitis mollitia nam, nemo nesciunt nihil non quas repellat? At consequuntur magnam odit pariatur quasi saepe
+        soluta voluptatibus? Repellendus...`
+
     return (
         <div className={styles.container}>
             <Header />
-            <img src={profilePhoto} alt="photo" className={styles.homePagePhoto} />
+            <div className={styles.homePagePhotoWrapper}>
+                <img className={styles.homePagePhoto} src={profilePhoto} alt="photo" />
+                <p className={styles.quote}>{quote}</p>
+            </div>
+            <Footer />
         </div>
     )
 }

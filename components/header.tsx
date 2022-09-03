@@ -1,7 +1,7 @@
 import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
 import Icon, { ICON_SIZE } from 'components/icon'
-import Button from 'components/button'
+import Button, { BUTTON_TYPE } from 'components/button'
 
 interface HeaderProps {}
 
@@ -15,6 +15,12 @@ interface SocialMediaLinks {
 interface HeaderMenu {
     title: string
     id: number
+}
+
+interface LangChangeMenu {
+    title: string
+    id: number
+    onClick: () => void
 }
 
 const Header = ({}: HeaderProps) => {
@@ -41,6 +47,11 @@ const Header = ({}: HeaderProps) => {
         { title: 'Projects', id: 4 },
     ]
 
+    const LANG_MENU: LangChangeMenu[] = [
+        { title: 'Ru', id: 1, onClick: () => {} },
+        { title: 'En', id: 2, onClick: () => {} },
+    ]
+
     const name: string = 'Kseniia Popova'
     const prof: string = 'Pianist'
 
@@ -51,7 +62,7 @@ const Header = ({}: HeaderProps) => {
                 <h3 className={styles.prof}>{prof}</h3>
             </div>
             <div>
-                <ul className={styles.menu}>
+                <ul className={styles.menu__main}>
                     {MENU.map(item => {
                         return <li key={item.id}>{item.title}</li>
                     })}
@@ -60,10 +71,36 @@ const Header = ({}: HeaderProps) => {
             <div>
                 {SOCIAL_MEDIA_BUTTONS.map(item => {
                     return (
-                        <Button onClick={() => {}} key={item.id}>
+                        <Button btnType={BUTTON_TYPE.SOCIAL_MEDIA} onClick={() => {}} key={item.id}>
                             <a href={item.href} target="_blank">
-                                <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.SMALL} />
+                                <Icon src={item.iconSrc} alt={item.alt} size={ICON_SIZE.MEDIUM} />
                             </a>
+                        </Button>
+                    )
+                })}
+            </div>
+            {/*<Button onClick={() => {}}>*/}
+            {/*    <Icon src={'/static/lang.svg'} alt={'language'} size={ICON_SIZE.SMALL} />*/}
+            {/*</Button>*/}
+            {/*<ul className={styles.menu__lang}>*/}
+            {/*    {LANG_MENU.map(item => {*/}
+            {/*        return (*/}
+            {/*            <li key={item.id} onClick={item.onClick}>*/}
+            {/*                {item.title}*/}
+            {/*            </li>*/}
+            {/*        )*/}
+            {/*    })}*/}
+            {/*</ul>*/}
+            <div>
+                {' '}
+                {LANG_MENU.map(item => {
+                    return (
+                        <Button
+                            btnType={BUTTON_TYPE.LANG_CHANGE}
+                            key={item.id}
+                            onClick={item.onClick}
+                        >
+                            <span>{item.title}</span>
                         </Button>
                     )
                 })}

@@ -4,3 +4,15 @@
     cursor: pointer;
     border: none;
 }
+
+.lang {
+    & :hover {
+        border-bottom: 1px solid black;
+    }
+
+    @extend .container;
+}
+
+.socialMedia {
+    @extend .container;
+}

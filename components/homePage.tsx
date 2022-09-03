@@ -3,7 +3,7 @@ import styles from 'styles/homePage.module.scss'
 import Header from 'components/header'
 import { getFileFromStorage } from 'service/storage'
 import Image from 'next/image'
-import Footer from './footer'
+import Footer from 'components/footer'
 
 interface HomePageProps {}
 
@@ -37,6 +37,7 @@ const HomePage = ({}: HomePageProps) => {
             <Header />
             <div className={styles.homePagePhotoWrapper}>
                 <img className={styles.homePagePhoto} src={profilePhoto} alt="photo" />
+                {/*<Image src={profilePhoto} width={200} height={200} />*/}
                 <p className={styles.quote}>{quote}</p>
             </div>
             <Footer />

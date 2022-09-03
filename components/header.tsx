@@ -92,7 +92,6 @@ const Header = ({}: HeaderProps) => {
             {/*    })}*/}
             {/*</ul>*/}
             <div>
-                {' '}
                 {LANG_MENU.map(item => {
                     return (
                         <Button

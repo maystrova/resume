@@ -2,6 +2,10 @@ import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
 import Icon, { ICON_SIZE } from 'components/icon'
 import Button, { BUTTON_TYPE } from 'components/button'
+import { useContext, useEffect } from 'react'
+import { ResumeContext } from 'context/storeContext'
+import { ACTION } from 'context/actions'
+import { LANGUAGE, tr } from 'service/language'
 
 interface HeaderProps {}
 
@@ -20,10 +24,12 @@ interface HeaderMenu {
 interface LangChangeMenu {
     title: string
     id: number
-    onClick: () => void
+    langValue: LANGUAGE
 }
 
 const Header = ({}: HeaderProps) => {
+    const { store, dispatch } = useContext(ResumeContext)
+
     const SOCIAL_MEDIA_BUTTONS: SocialMediaLinks[] = [
         {
             href: `${CONFIG.instagramLink}`,
@@ -41,19 +47,34 @@ const Header = ({}: HeaderProps) => {
     ]
 
     const MENU: HeaderMenu[] = [
-        { title: 'Home', id: 1 },
-        { title: 'About', id: 2 },
-        { title: 'Photo', id: 3 },
-        { title: 'Projects', id: 4 },
+        { title: tr('home', store.currentLang), id: 1 },
+        { title: tr('about', store.currentLang), id: 2 },
+        { title: tr('photo', store.currentLang), id: 3 },
+        { title: tr('projects', store.currentLang), id: 4 },
     ]
 
     const LANG_MENU: LangChangeMenu[] = [
-        { title: 'Ru', id: 1, onClick: () => {} },
-        { title: 'En', id: 2, onClick: () => {} },
+        {
+            title: 'Ru',
+            id: 1,
+            langValue: LANGUAGE.RU,
+        },
+        {
+            title: 'En',
+            id: 2,
+            langValue: LANGUAGE.EN,
+        },
     ]
 
-    const name: string = 'Kseniia Popova'
-    const prof: string = 'Pianist'
+    const name: string = tr('name', store.currentLang)
+    const prof: string = tr('prof', store.currentLang)
+
+    useEffect(() => {
+        const currentValue = localStorage.getItem('currentLang')
+        if (currentValue) {
+            dispatch({ action: ACTION.SET_LANGUAGE, data: currentValue })
+        }
+    }, [])
 
     return (
         <div className={styles.container}>
@@ -97,7 +118,10 @@ const Header = ({}: HeaderProps) => {
                         <Button
                             btnType={BUTTON_TYPE.LANG_CHANGE}
                             key={item.id}
-                            onClick={item.onClick}
+                            onClick={() => {
+                                dispatch({ action: ACTION.SET_LANGUAGE, data: item.langValue })
+                                localStorage.setItem('currentLang', item.langValue)
+                            }}
                         >
                             <span>{item.title}</span>
                         </Button>

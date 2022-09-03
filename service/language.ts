@@ -5,6 +5,11 @@ export enum LANGUAGE {
 
 export enum TRANSLATE_KEYS {
     NAME = 'name',
+    PROFESSION = 'prof',
+    HOME = 'home',
+    ABOUT = 'about',
+    PHOTO = 'photo',
+    PROJECTS = 'projects',
 }
 
 type Translate = {
@@ -12,9 +17,23 @@ type Translate = {
     key: TRANSLATE_KEYS
 }
 
-const TRANSLATE_RU: Translate[] = [{ key: TRANSLATE_KEYS.NAME, translate: 'Ксения Попова' }]
+const TRANSLATE_RU: Translate[] = [
+    { key: TRANSLATE_KEYS.NAME, translate: 'Ксения Попова' },
+    { key: TRANSLATE_KEYS.PROFESSION, translate: 'Пианистка' },
+    { key: TRANSLATE_KEYS.HOME, translate: 'Главная' },
+    { key: TRANSLATE_KEYS.ABOUT, translate: 'Биография' },
+    { key: TRANSLATE_KEYS.PHOTO, translate: 'Галерея' },
+    { key: TRANSLATE_KEYS.PROJECTS, translate: 'Проекты' },
+]
 
-const TRANSLATE_EN: Translate[] = [{ key: TRANSLATE_KEYS.NAME, translate: 'Ksenia Popova' }]
+const TRANSLATE_EN: Translate[] = [
+    { key: TRANSLATE_KEYS.NAME, translate: 'Kseniia Popova' },
+    { key: TRANSLATE_KEYS.PROFESSION, translate: 'Pianist' },
+    { key: TRANSLATE_KEYS.HOME, translate: 'Home' },
+    { key: TRANSLATE_KEYS.ABOUT, translate: 'About' },
+    { key: TRANSLATE_KEYS.PHOTO, translate: 'Photo' },
+    { key: TRANSLATE_KEYS.PROJECTS, translate: 'Projects' },
+]
 
 const tr = (key: string, currentLang: LANGUAGE): string => {
     const hash = {

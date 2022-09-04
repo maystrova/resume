@@ -6,6 +6,7 @@ import { useContext, useEffect } from 'react'
 import { ResumeContext } from 'context/storeContext'
 import { ACTION } from 'context/actions'
 import { LANGUAGE, tr } from 'service/language'
+import Link from 'next/link'
 
 interface HeaderProps {}
 
@@ -19,6 +20,7 @@ interface SocialMediaLinks {
 interface HeaderMenu {
     title: string
     id: number
+    href: string
 }
 
 interface LangChangeMenu {
@@ -47,10 +49,10 @@ const Header = ({}: HeaderProps) => {
     ]
 
     const MENU: HeaderMenu[] = [
-        { title: tr('home', store.currentLang), id: 1 },
-        { title: tr('about', store.currentLang), id: 2 },
-        { title: tr('photo', store.currentLang), id: 3 },
-        { title: tr('projects', store.currentLang), id: 4 },
+        { title: tr('home', store.currentLang), id: 1, href: '/' },
+        { title: tr('about', store.currentLang), id: 2, href: '/about' },
+        { title: tr('photo', store.currentLang), id: 3, href: '/photo' },
+        { title: tr('projects', store.currentLang), id: 4, href: '/projects' },
     ]
 
     const LANG_MENU: LangChangeMenu[] = [
@@ -69,23 +71,24 @@ const Header = ({}: HeaderProps) => {
     const name: string = tr('name', store.currentLang)
     const prof: string = tr('prof', store.currentLang)
 
-    useEffect(() => {
-        const currentValue = localStorage.getItem('currentLang')
-        if (currentValue) {
-            dispatch({ action: ACTION.SET_LANGUAGE, data: currentValue })
-        }
-    }, [])
-
     return (
         <div className={styles.container}>
-            <div className={styles.logo}>
-                <h1 className={styles.name}>{name}</h1>
-                <h3 className={styles.prof}>{prof}</h3>
-            </div>
+            <Link href={'/'}>
+                <div className={styles.logo}>
+                    <h1 className={styles.name}>{name}</h1>
+                    <h3 className={styles.prof}>{prof}</h3>
+                </div>
+            </Link>
             <div>
                 <ul className={styles.menu__main}>
                     {MENU.map(item => {
-                        return <li key={item.id}>{item.title}</li>
+                        return (
+                            <li key={item.id}>
+                                <Link href={item.href}>
+                                    <a>{item.title}</a>
+                                </Link>
+                            </li>
+                        )
                     })}
                 </ul>
             </div>

@@ -6,7 +6,9 @@ const Footer = ({}: FooterProps) => {
     const name: string = 'Kseniia Popova'
     return (
         <div className={styles.container}>
-            <div>{name}</div>
+            <div>
+                {new Date().getFullYear()} {name}
+            </div>
         </div>
     )
 }

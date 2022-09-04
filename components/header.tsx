@@ -100,18 +100,6 @@ const Header = ({}: HeaderProps) => {
                     )
                 })}
             </div>
-            {/*<Button onClick={() => {}}>*/}
-            {/*    <Icon src={'/static/lang.svg'} alt={'language'} size={ICON_SIZE.SMALL} />*/}
-            {/*</Button>*/}
-            {/*<ul className={styles.menu__lang}>*/}
-            {/*    {LANG_MENU.map(item => {*/}
-            {/*        return (*/}
-            {/*            <li key={item.id} onClick={item.onClick}>*/}
-            {/*                {item.title}*/}
-            {/*            </li>*/}
-            {/*        )*/}
-            {/*    })}*/}
-            {/*</ul>*/}
             <div>
                 {LANG_MENU.map(item => {
                     return (

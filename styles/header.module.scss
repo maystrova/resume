@@ -1,0 +1,36 @@
+.container {
+    //background: #0b64a8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.name {
+    margin-bottom: 0;
+}
+
+.prof {
+    margin-top: 5px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+.menu__main {
+    gap: 20px;
+
+    @extend .menu;
+}
+
+.menu__lang {
+    gap: 5px;
+
+    @extend .menu;
+}

@@ -1,0 +1,20 @@
+.container {
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+
+.lang {
+    font-size: 15px;
+
+    & :hover {
+        border-bottom: 1px solid black;
+    }
+
+    @extend .container;
+}
+
+.socialMedia {
+    @extend .container;
+}

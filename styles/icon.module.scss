@@ -1,0 +1,20 @@
+$small: 20px;
+$medium: 30px;
+
+.main {
+    display: block;
+}
+
+.small {
+    width: $small;
+    height: $small;
+
+    @extend .main;
+}
+
+.medium {
+    width: $medium;
+    height: $medium;
+
+    @extend .main;
+}

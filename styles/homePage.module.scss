@@ -1,0 +1,23 @@
+$width: 1280px;
+
+.container {
+    max-width: $width;
+    margin: 0 auto;
+}
+
+.homePagePhotoWrapper {
+    position: relative;
+}
+
+.homePagePhoto {
+    max-width: $width;
+}
+
+.quote {
+    position: absolute;
+    bottom: 5%;
+    max-width: 350px;
+    color: #eaeaea;
+    left: 5%;
+    font-size: 18px;
+}

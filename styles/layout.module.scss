@@ -1,2 +1,6 @@
+$width: 1280px;
+
 .container {
+    max-width: $width;
+    margin: 0 auto;
 }

@@ -42,11 +42,17 @@ const Header = ({}: HeaderProps) => {
         },
         {
             href: `${CONFIG.facebookLink}`,
-            id: 1,
+            id: 2,
             alt: 'Instagram',
             iconSrc: '/static/facebook-logo.svg',
         },
-        { href: `${CONFIG.vkLink}`, id: 1, alt: 'Instagram', iconSrc: '/static/vk-logo.svg' },
+        { href: `${CONFIG.vkLink}`, id: 3, alt: 'Instagram', iconSrc: '/static/vk-logo.svg' },
+        {
+            href: `${CONFIG.telegramLink}`,
+            id: 4,
+            alt: 'Telegram',
+            iconSrc: '/static/telegram-logo.svg',
+        },
     ]
 
     const MENU: HeaderMenu[] = [
@@ -76,8 +82,8 @@ const Header = ({}: HeaderProps) => {
         <div className={styles.container}>
             <Link href={'/'}>
                 <div className={styles.logo}>
-                    <h1 className={styles.name}>{name}</h1>
-                    <h3 className={styles.prof}>{prof}</h3>
+                    <div className={styles.name}>{name}</div>
+                    <div className={styles.prof}>{prof}</div>
                 </div>
             </Link>
             <div>

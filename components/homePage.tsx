@@ -34,7 +34,6 @@ const HomePage = ({}: HomePageProps) => {
 
     return (
         <div className={styles.container}>
-            <Header />
             <div className={styles.homePagePhotoWrapper}>
                 <img className={styles.homePagePhoto} src={profilePhoto} alt="photo" />
                 {/*<Image src={profilePhoto} width={200} height={200} />*/}

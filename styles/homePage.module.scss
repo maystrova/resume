@@ -1,8 +1,14 @@
 $width: 1280px;
 
 .container {
-    max-width: $width;
-    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    //left: 0;
+    top: 0;
+    //right: 0;
+    z-index: 10;
 }
 
 .homePagePhotoWrapper {

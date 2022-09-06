@@ -2,7 +2,7 @@ import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
 import Icon, { ICON_SIZE } from 'components/icon'
 import Button, { BUTTON_TYPE } from 'components/button'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { ResumeContext } from 'context/storeContext'
 import { ACTION } from 'context/actions'
 import { LANGUAGE, tr } from 'service/language'
@@ -31,6 +31,7 @@ interface LangChangeMenu {
 
 const Header = ({}: HeaderProps) => {
     const { store, dispatch } = useContext(ResumeContext)
+    const [langBtn, setLangBtn] = useState<boolean>(false)
 
     const SOCIAL_MEDIA_BUTTONS: SocialMediaLinks[] = [
         {

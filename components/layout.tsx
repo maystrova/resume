@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Head from 'next/head'
 import styles from 'styles/layout.module.scss'
-import Header from './header'
+import Header from 'components/header'
+import Footer from 'components/footer'
+import { ResumeContext } from 'context/storeContext'
+import { ACTION } from 'context/actions'
 
 interface LayoutProps {
     children: React.ReactElement | React.ReactComponentElement<any> | React.ReactNode
@@ -9,6 +12,15 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, title = 'Kseniia Popova - Official website' }: LayoutProps) => {
+    const { dispatch } = useContext(ResumeContext)
+
+    useEffect(() => {
+        const currentValue = localStorage.getItem('currentLang')
+        if (currentValue) {
+            dispatch({ action: ACTION.SET_LANGUAGE, data: currentValue })
+        }
+    }, [])
+
     return (
         <div className={styles.container}>
             <Head>
@@ -29,6 +41,7 @@ const Layout = ({ children, title = 'Kseniia Popova - Official website' }: Layou
             <div>
                 <Header />
                 {children}
+                <Footer />
             </div>
         </div>
     )

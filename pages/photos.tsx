@@ -1,8 +1,8 @@
 import Layout from 'components/layout'
 
-interface PhotoPageProps {}
+interface PhotosPageProps {}
 
-const PhotoPage = ({}: PhotoPageProps) => {
+const PhotosPage = ({}: PhotosPageProps) => {
     return (
         <Layout>
             <div>
@@ -12,4 +12,4 @@ const PhotoPage = ({}: PhotoPageProps) => {
     )
 }
 
-export default PhotoPage
+export default PhotosPage

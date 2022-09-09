@@ -43,15 +43,21 @@ const Header = ({}: HeaderProps) => {
         {
             href: `${CONFIG.facebookLink}`,
             id: 2,
-            alt: 'Instagram',
+            alt: 'Facebook',
             iconSrc: '/static/facebook-logo.svg',
         },
-        { href: `${CONFIG.vkLink}`, id: 3, alt: 'Instagram', iconSrc: '/static/vk-logo.svg' },
+        { href: `${CONFIG.vkLink}`, id: 3, alt: 'Vk', iconSrc: '/static/vk-logo.svg' },
         {
             href: `${CONFIG.telegramLink}`,
             id: 4,
             alt: 'Telegram',
             iconSrc: '/static/telegram-logo.svg',
+        },
+        {
+            href: `${CONFIG.youTubeLink}`,
+            id: 5,
+            alt: 'YouTube',
+            iconSrc: '/static/youtube-logo.svg',
         },
     ]
 

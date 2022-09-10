@@ -10,7 +10,7 @@ export enum TRANSLATE_KEYS {
     PROFESSION = 'prof',
     HOME = 'home',
     ABOUT = 'about',
-    PHOTO = 'photo',
+    PHOTO = 'photos',
     PROJECTS = 'projects',
     BIOGRAPHY = 'biography',
 }
@@ -35,7 +35,7 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.PROFESSION, translate: 'Pianist' },
     { key: TRANSLATE_KEYS.HOME, translate: 'Home' },
     { key: TRANSLATE_KEYS.ABOUT, translate: 'About' },
-    { key: TRANSLATE_KEYS.PHOTO, translate: 'Photo' },
+    { key: TRANSLATE_KEYS.PHOTO, translate: 'Photos' },
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Projects' },
     { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyEn },
 ]

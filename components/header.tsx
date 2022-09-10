@@ -64,7 +64,7 @@ const Header = ({}: HeaderProps) => {
     const MENU: HeaderMenu[] = [
         { title: tr('home', store.currentLang), id: 1, href: '/' },
         { title: tr('about', store.currentLang), id: 2, href: '/about' },
-        { title: tr('photo', store.currentLang), id: 3, href: '/photo' },
+        { title: tr('photos', store.currentLang), id: 3, href: '/photos' },
         { title: tr('projects', store.currentLang), id: 4, href: '/projects' },
     ]
 
@@ -105,7 +105,7 @@ const Header = ({}: HeaderProps) => {
                     })}
                 </ul>
             </div>
-            <div>
+            <div className={styles.menu__socialMedia}>
                 {SOCIAL_MEDIA_BUTTONS.map(item => {
                     return (
                         <Button btnType={BUTTON_TYPE.SOCIAL_MEDIA} onClick={() => {}} key={item.id}>
@@ -116,7 +116,7 @@ const Header = ({}: HeaderProps) => {
                     )
                 })}
             </div>
-            <div>
+            <div className={styles.menu__langChange}>
                 {LANG_MENU.map(item => {
                     return (
                         <Button

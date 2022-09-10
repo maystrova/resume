@@ -1,9 +1,19 @@
 .container {
     //background: #0b64a8;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    //display: flex;
+    //justify-content: space-between;
     padding: 15px 0;
+    display: grid;
+    grid-template-areas: 'logo' 'menu' 'social-links' 'lang';
+    align-items: center;
+    gap: 15px;
+
+    @media (min-width: 768px) {
+        max-width: 1280px;
+        margin: 0 auto;
+        grid-template-areas: 'logo' 'menu' 'social-links' 'lang';
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 .logo {
@@ -13,16 +23,34 @@
 .name {
     font-size: 36px;
     margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .prof {
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu {
     display: flex;
     align-items: center;
     list-style-type: none;
+}
+
+.menu__socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__langChange {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu__main {

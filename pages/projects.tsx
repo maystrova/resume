@@ -1,11 +1,12 @@
 import Layout from 'components/layout'
+import styles from 'styles/projects.module.scss'
 
 interface ProjectsPageProps {}
 
 const ProjectsPage = ({}: ProjectsPageProps) => {
     return (
         <Layout>
-            <div>
+            <div className={styles.container}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste, voluptatem.
                 A accusantium adipisci aliquam amet aspernatur, commodi consectetur cumque deserunt
                 dignissimos dolor dolore eius eligendi enim exercitationem, impedit itaque laborum

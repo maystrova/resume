@@ -1,3 +1,5 @@
+import { biographyRu, biographyEn } from 'service/biography'
+
 export enum LANGUAGE {
     RU = 'ru',
     EN = 'en',
@@ -8,8 +10,9 @@ export enum TRANSLATE_KEYS {
     PROFESSION = 'prof',
     HOME = 'home',
     ABOUT = 'about',
-    PHOTO = 'photo',
+    PHOTO = 'photos',
     PROJECTS = 'projects',
+    BIOGRAPHY = 'biography',
 }
 
 type Translate = {
@@ -24,6 +27,7 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.ABOUT, translate: 'Биография' },
     { key: TRANSLATE_KEYS.PHOTO, translate: 'Галерея' },
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Проекты' },
+    { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyRu },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -31,8 +35,9 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.PROFESSION, translate: 'Pianist' },
     { key: TRANSLATE_KEYS.HOME, translate: 'Home' },
     { key: TRANSLATE_KEYS.ABOUT, translate: 'About' },
-    { key: TRANSLATE_KEYS.PHOTO, translate: 'Photo' },
+    { key: TRANSLATE_KEYS.PHOTO, translate: 'Photos' },
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Projects' },
+    { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyEn },
 ]
 
 const tr = (key: string, currentLang: LANGUAGE): string => {

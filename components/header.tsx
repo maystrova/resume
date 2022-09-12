@@ -2,7 +2,7 @@ import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
 import Icon, { ICON_SIZE } from 'components/icon'
 import Button, { BUTTON_TYPE } from 'components/button'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { ResumeContext } from 'context/storeContext'
 import { ACTION } from 'context/actions'
 import { LANGUAGE, tr } from 'service/language'
@@ -31,6 +31,7 @@ interface LangChangeMenu {
 
 const Header = ({}: HeaderProps) => {
     const { store, dispatch } = useContext(ResumeContext)
+    const [langBtn, setLangBtn] = useState<boolean>(false)
 
     const SOCIAL_MEDIA_BUTTONS: SocialMediaLinks[] = [
         {
@@ -41,17 +42,29 @@ const Header = ({}: HeaderProps) => {
         },
         {
             href: `${CONFIG.facebookLink}`,
-            id: 1,
-            alt: 'Instagram',
+            id: 2,
+            alt: 'Facebook',
             iconSrc: '/static/facebook-logo.svg',
         },
-        { href: `${CONFIG.vkLink}`, id: 1, alt: 'Instagram', iconSrc: '/static/vk-logo.svg' },
+        { href: `${CONFIG.vkLink}`, id: 3, alt: 'Vk', iconSrc: '/static/vk-logo.svg' },
+        {
+            href: `${CONFIG.telegramLink}`,
+            id: 4,
+            alt: 'Telegram',
+            iconSrc: '/static/telegram-logo.svg',
+        },
+        {
+            href: `${CONFIG.youTubeLink}`,
+            id: 5,
+            alt: 'YouTube',
+            iconSrc: '/static/youtube-logo.svg',
+        },
     ]
 
     const MENU: HeaderMenu[] = [
         { title: tr('home', store.currentLang), id: 1, href: '/' },
         { title: tr('about', store.currentLang), id: 2, href: '/about' },
-        { title: tr('photo', store.currentLang), id: 3, href: '/photo' },
+        { title: tr('photos', store.currentLang), id: 3, href: '/photos' },
         { title: tr('projects', store.currentLang), id: 4, href: '/projects' },
     ]
 
@@ -75,8 +88,8 @@ const Header = ({}: HeaderProps) => {
         <div className={styles.container}>
             <Link href={'/'}>
                 <div className={styles.logo}>
-                    <h1 className={styles.name}>{name}</h1>
-                    <h3 className={styles.prof}>{prof}</h3>
+                    <div className={styles.name}>{name}</div>
+                    <div className={styles.prof}>{prof}</div>
                 </div>
             </Link>
             <div>
@@ -92,7 +105,7 @@ const Header = ({}: HeaderProps) => {
                     })}
                 </ul>
             </div>
-            <div>
+            <div className={styles.menu__socialMedia}>
                 {SOCIAL_MEDIA_BUTTONS.map(item => {
                     return (
                         <Button btnType={BUTTON_TYPE.SOCIAL_MEDIA} onClick={() => {}} key={item.id}>
@@ -103,7 +116,7 @@ const Header = ({}: HeaderProps) => {
                     )
                 })}
             </div>
-            <div>
+            <div className={styles.menu__langChange}>
                 {LANG_MENU.map(item => {
                     return (
                         <Button

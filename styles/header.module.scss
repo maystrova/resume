@@ -48,13 +48,13 @@
 }
 
 .menu__langChange {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend .menu__socialMedia;
 }
 
 .menu__main {
     gap: 20px;
+    padding: 0;
+    justify-content: center;
 
     @extend .menu;
 }

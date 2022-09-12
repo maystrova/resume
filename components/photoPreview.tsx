@@ -4,8 +4,12 @@ interface PhotoPreviewProps {
     src: string
 }
 
-const PhotoPreview = ({}: PhotoPreviewProps) => {
-    return <div className={styles.container}></div>
+const PhotoPreview = ({ src }: PhotoPreviewProps) => {
+    return (
+        <div className={styles.container}>
+            <img src={src} />
+        </div>
+    )
 }
 
 export default PhotoPreview

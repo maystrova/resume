@@ -5,25 +5,14 @@ $width: 1280px;
 
 .header {
     position: fixed;
-    //left: 0;
     top: 0;
-    //right: 0;
     z-index: 10;
 }
 
 .homePagePhotoWrapper {
-    position: relative;
 }
 
 .homePagePhoto {
-    max-width: $width;
-}
-
-.quote {
-    position: absolute;
-    bottom: 5%;
-    max-width: 350px;
-    color: #eaeaea;
-    left: 5%;
-    font-size: 18px;
+    //max-width: $width;
+    width: 100%;
 }

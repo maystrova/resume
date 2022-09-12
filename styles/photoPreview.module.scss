@@ -3,6 +3,14 @@
     overflow: hidden;
     background-color: lightgray;
     cursor: pointer;
-    width: 200px;
+    width: 120%;
     height: 200px;
+
+    @media (min-width: 768px) {
+        width: 200px;
+    }
+
+    img {
+        width: 100%;
+    }
 }

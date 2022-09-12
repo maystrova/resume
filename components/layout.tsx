@@ -11,7 +11,7 @@ interface LayoutProps {
     title?: string
 }
 
-const Layout = ({ children, title = 'Kseniia Popova - Official website' }: LayoutProps) => {
+const Layout = ({ children, title = 'Kseniia Popova - Official Website' }: LayoutProps) => {
     const { dispatch } = useContext(ResumeContext)
 
     useEffect(() => {

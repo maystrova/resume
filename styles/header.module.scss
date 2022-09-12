@@ -1,18 +1,16 @@
 .container {
-    //background: #0b64a8;
-    //display: flex;
-    //justify-content: space-between;
     padding: 15px 0;
     display: grid;
     grid-template-areas: 'logo' 'menu' 'social-links' 'lang';
     align-items: center;
-    gap: 15px;
+    grid-gap: 15px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         max-width: 1280px;
-        margin: 0 auto;
+        padding: 30px 0;
         grid-template-areas: 'logo' 'menu' 'social-links' 'lang';
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 50px;
+        grid-gap: 0;
     }
 }
 
@@ -32,6 +30,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 1024px) {
+        max-width: 1280px;
+        justify-content: flex-start;
+    }
 }
 
 .prof {
@@ -39,6 +42,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 1024px) {
+        max-width: 1280px;
+        justify-content: flex-start;
+    }
 }
 
 .menu {

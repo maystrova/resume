@@ -1,15 +1,11 @@
 import styles from 'styles/photoPreview.module.scss'
 
 interface PhotoPreviewProps {
-    src: string
+    // src: string
 }
 
-const PhotoPreview = ({ src }: PhotoPreviewProps) => {
-    return (
-        <div className={styles.container}>
-            <img src={src} />
-        </div>
-    )
+const PhotoPreview = ({}: PhotoPreviewProps) => {
+    return <div className={styles.container}></div>
 }
 
 export default PhotoPreview

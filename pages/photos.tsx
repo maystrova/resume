@@ -8,10 +8,13 @@ const PhotosPage = ({}: PhotosPageProps) => {
     return (
         <Layout>
             <div className={styles.container}>
-                <PhotoPreview src={'/static/homePagePhoto1.PNG'} />
-                <PhotoPreview src={'/static/homePagePhoto2.PNG'} />
-                <PhotoPreview src={'/static/homePagePhoto1.PNG'} />
-                <PhotoPreview src={'/static/homePagePhoto2.PNG'} />
+                <PhotoPreview />
+                <PhotoPreview />
+                <PhotoPreview />
+                <PhotoPreview />
+                <PhotoPreview />
+                <PhotoPreview />
+                <PhotoPreview />
             </div>
         </Layout>
     )

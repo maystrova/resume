@@ -3,6 +3,7 @@ import Layout from 'components/layout'
 import React, { useEffect, useState } from 'react'
 import { getFileFromStorage } from 'service/storage'
 import styles from 'styles/homePage.module.scss'
+import Image from 'next/image'
 
 const Home: NextPage = () => {
     const [profilePhoto, setProfilePhoto] = useState<string>('')
@@ -13,7 +14,7 @@ const Home: NextPage = () => {
 
     const initImages = async () => {
         try {
-            const serverImage = await getFileFromStorage('/IMG_0841.PNG')
+            const serverImage = await getFileFromStorage('/IMG_0838.PNG')
             if (serverImage) {
                 setProfilePhoto(serverImage)
             } else {

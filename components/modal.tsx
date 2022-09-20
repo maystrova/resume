@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from 'styles/modal.module.scss'
 
 interface ModalWindowProps {
     isOpen: boolean
@@ -7,7 +8,12 @@ interface ModalWindowProps {
 }
 
 const ModalWindow = ({ isOpen, onCancel, children }: ModalWindowProps) => {
-    return <div onClick={onCancel}>{children}</div>
+    return (
+        <div className={styles.modal}>
+            <div className={styles.overlay} onClick={onCancel}></div>
+            <div className={styles.container}>{children}</div>
+        </div>
+    )
 }
 
 export default ModalWindow

@@ -2,7 +2,7 @@ import Layout from 'components/layout'
 import PhotoPreview from 'components/photoPreview'
 import styles from 'styles/photos.module.scss'
 import { useState } from 'react'
-import ModalWindow from '../components/modal'
+import ModalWindow from 'components/modal'
 
 interface PhotosPageProps {}
 

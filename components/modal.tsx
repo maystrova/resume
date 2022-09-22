@@ -14,7 +14,7 @@ const ModalWindow = ({ isOpen, onCancel, children }: ModalWindowProps) => {
         <div className={styles.modal}>
             <div className={styles.overlay} onClick={onCancel}></div>
             <div className={styles.container}>
-                <header>
+                <header className={styles.header}>
                     <Button onClick={onCancel} btnType={BUTTON_TYPE.CLOSE_WINDOW}>
                         <Icon src={'/static/close-icon.svg'} alt={'Close'} size={ICON_SIZE.SMALL} />
                     </Button>

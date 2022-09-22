@@ -29,5 +29,8 @@
     padding: 20px;
 }
 
-.close {
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }

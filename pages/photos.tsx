@@ -12,7 +12,10 @@ const PhotosPage = ({}: PhotosPageProps) => {
     return (
         <Layout>
             <div className={styles.container}>
-                <PhotoPreview onClick={() => setModalIsOpen(true)} />
+                <PhotoPreview
+                    src={'/static/homePagePhoto1.PNG'}
+                    onClick={() => setModalIsOpen(true)}
+                />
                 {modalIsOpen && (
                     <ModalWindow isOpen={modalIsOpen} onCancel={() => setModalIsOpen(false)}>
                         {<div></div>}

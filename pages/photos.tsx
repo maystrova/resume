@@ -18,7 +18,15 @@ const PhotosPage = ({}: PhotosPageProps) => {
                 />
                 {modalIsOpen && (
                     <ModalWindow isOpen={modalIsOpen} onCancel={() => setModalIsOpen(false)}>
-                        {<div></div>}
+                        {
+                            <div>
+                                <img
+                                    className={styles.main}
+                                    src="/static/homePagePhoto1.PNG"
+                                    alt="img"
+                                />
+                            </div>
+                        }
                     </ModalWindow>
                 )}
             </div>

@@ -76,6 +76,16 @@
     justify-content: center;
 
     @extend .menu;
+
+    li {
+        & :hover {
+            border-bottom: 1px solid #fff;
+        }
+    }
+
+    a {
+        padding-bottom: 7px;
+    }
 }
 
 .menu__lang {

@@ -19,3 +19,8 @@
 .socialMedia {
     @extend .container;
 }
+
+.close {
+    @extend .container;
+    padding: 0;
+}

@@ -1,11 +1,17 @@
+import React from 'react'
 import styles from 'styles/photoPreview.module.scss'
 
 interface PhotoPreviewProps {
-    // src: string
+    onClick: () => void
+    src: string
 }
 
-const PhotoPreview = ({}: PhotoPreviewProps) => {
-    return <div className={styles.container}></div>
+const PhotoPreview = ({ onClick, src }: PhotoPreviewProps) => {
+    return (
+        <div className={styles.container} onClick={onClick}>
+            <img src={src} alt="image" />
+        </div>
+    )
 }
 
 export default PhotoPreview

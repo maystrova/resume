@@ -4,6 +4,7 @@ import style from 'styles/button.module.scss'
 export enum BUTTON_TYPE {
     LANG_CHANGE = 'lang',
     SOCIAL_MEDIA = 'socialMedia',
+    CLOSE_WINDOW = 'closeWindow',
 }
 
 interface ButtonProps {
@@ -18,6 +19,8 @@ const buttonTypeHandler = (type: BUTTON_TYPE): string => {
             return style.lang
         case BUTTON_TYPE.SOCIAL_MEDIA:
             return style.socialMedia
+        case BUTTON_TYPE.CLOSE_WINDOW:
+            return style.close
     }
 }
 

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Layout from 'components/layout'
 import React, { useEffect, useState } from 'react'
-import { getFileFromStorage } from 'service/storage'
+import { getFileFromStorage, getFilesFromStorage } from 'service/storage'
 import styles from 'styles/homePage.module.scss'
 import Image from 'next/image'
 
@@ -11,6 +11,7 @@ const Home: NextPage = () => {
     useEffect(() => {
         initImages()
     }, [])
+    // useEffect(()=>{getFilesFromStorage()}, [])
 
     const initImages = async () => {
         try {

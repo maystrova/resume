@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { getFileFromStorage, getFilesFromStorage } from 'service/storage'
 import styles from 'styles/homePage.module.scss'
 import Image from 'next/image'
+import { storage } from '../service/firebase'
 
 const Home: NextPage = () => {
     const [profilePhoto, setProfilePhoto] = useState<string>('')
@@ -11,7 +12,6 @@ const Home: NextPage = () => {
     useEffect(() => {
         initImages()
     }, [])
-    // useEffect(()=>{getFilesFromStorage()}, [])
 
     const initImages = async () => {
         try {

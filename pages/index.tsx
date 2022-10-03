@@ -8,6 +8,7 @@ import { storage } from '../service/firebase'
 import { tr } from '../service/language'
 import { ResumeContext } from '../context/storeContext'
 import PhotoPreview from '../components/photoPreview'
+import PerformancePreview from '../components/perfomancePreview'
 
 const Home: NextPage = () => {
     const [profilePhoto, setProfilePhoto] = useState<string>('')
@@ -42,6 +43,14 @@ const Home: NextPage = () => {
                 </div>
                 <div>
                     <h2 className={styles.performances__title}>{performancesTitle}</h2>
+                    <PerformancePreview src={'/static/homePagePhoto1.PNG'}>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut culpa
+                            doloribus eaque enim explicabo, id incidunt ipsam magnam magni numquam,
+                            officia placeat porro quis, similique sint soluta voluptatibus.
+                            Provident.
+                        </div>
+                    </PerformancePreview>
                 </div>
             </div>
         </Layout>

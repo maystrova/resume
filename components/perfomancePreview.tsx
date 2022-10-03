@@ -9,7 +9,7 @@ interface PerformancePreviewProps {
 const PerformancePreview = ({ src, children }: PerformancePreviewProps) => {
     return (
         <div className={styles.container}>
-            <img src={src} alt="image" />
+            <img className={styles.photo} src={src} alt="image" />
             <div>{children}</div>
         </div>
     )

@@ -1,13 +1,17 @@
 import type { NextPage } from 'next'
 import Layout from 'components/layout'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getFileFromStorage, getFilesFromStorage } from 'service/storage'
 import styles from 'styles/homePage.module.scss'
 import Image from 'next/image'
 import { storage } from '../service/firebase'
+import { tr } from '../service/language'
+import { ResumeContext } from '../context/storeContext'
+import PhotoPreview from '../components/photoPreview'
 
 const Home: NextPage = () => {
     const [profilePhoto, setProfilePhoto] = useState<string>('')
+    const { store } = useContext(ResumeContext)
 
     useEffect(() => {
         initImages()
@@ -27,12 +31,17 @@ const Home: NextPage = () => {
         }
     }
 
+    const performancesTitle: string = tr('performances', store.currentLang)
+
     return (
         <Layout>
             <div className={styles.container}>
                 <div className={styles.homePagePhotoWrapper}>
                     <img className={styles.homePagePhoto} src={profilePhoto} alt="photo" />
                     {/*<Image src={profilePhoto} width={200} height={200} />*/}
+                </div>
+                <div>
+                    <h2 className={styles.performances__title}>{performancesTitle}</h2>
                 </div>
             </div>
         </Layout>

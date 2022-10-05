@@ -4,3 +4,10 @@ $width: 1280px;
     max-width: $width;
     margin: 0 auto;
 }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}

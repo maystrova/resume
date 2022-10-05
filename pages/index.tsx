@@ -1,17 +1,22 @@
 import type { NextPage } from 'next'
 import Layout from 'components/layout'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getFileFromStorage, getFilesFromStorage } from 'service/storage'
 import styles from 'styles/homePage.module.scss'
 import Image from 'next/image'
+import { storage } from '../service/firebase'
+import { tr } from '../service/language'
+import { ResumeContext } from '../context/storeContext'
+import PhotoPreview from '../components/photoPreview'
+import PerformancePreview from '../components/perfomancePreview'
 
 const Home: NextPage = () => {
     const [profilePhoto, setProfilePhoto] = useState<string>('')
+    const { store } = useContext(ResumeContext)
 
     useEffect(() => {
         initImages()
     }, [])
-    // useEffect(()=>{getFilesFromStorage()}, [])
 
     const initImages = async () => {
         try {
@@ -27,12 +32,25 @@ const Home: NextPage = () => {
         }
     }
 
+    const performancesTitle: string = tr('performances', store.currentLang)
+
     return (
         <Layout>
             <div className={styles.container}>
                 <div className={styles.homePagePhotoWrapper}>
                     <img className={styles.homePagePhoto} src={profilePhoto} alt="photo" />
                     {/*<Image src={profilePhoto} width={200} height={200} />*/}
+                </div>
+                <div className={styles.performances}>
+                    <h2 className={styles.performances__title}>{performancesTitle}</h2>
+                    <PerformancePreview src={'/static/homePagePhoto1.PNG'}>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut culpa
+                            doloribus eaque enim explicabo, id incidunt ipsam magnam magni numquam,
+                            officia placeat porro quis, similique sint soluta voluptatibus.
+                            Provident.
+                        </div>
+                    </PerformancePreview>
                 </div>
             </div>
         </Layout>

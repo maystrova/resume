@@ -1,3 +1,8 @@
+$small: 480px;
+$medium: 768px;
+$big: 1024px;
+$large: 1280px;
+
 .container {
     display: grid;
     margin: 0 auto;
@@ -5,13 +10,13 @@
     grid-template-rows: 1fr;
     gap: 10px;
 
-    @media (min-width: 768px) {
-        max-width: 1024px;
+    @media (min-width: $medium) {
+        max-width: $big;
         grid-template-columns: repeat(4, 1fr);
     }
 
-    @media (min-width: 1024px) {
-        max-width: 1280px;
+    @media (min-width: $big) {
+        max-width: $large;
         grid-template-columns: repeat(6, 1fr);
     }
 }

@@ -13,14 +13,14 @@ const getFileFromStorage = async (path: string): Promise<string | null> => {
 }
 
 const getFilesFromStorage = async (path: string, files: any) => {
-    let filesData: string[] = []
-
-    for (const file of files) {
-        const snapshot = await getDownloadURL(ref(storage, path))
-        filesData.push(snapshot)
-        console.log(filesData)
-    }
-    return filesData
+    // let filesData: string[] = []
+    //
+    // for (const file of files) {
+    //     const snapshot = await getDownloadURL(ref(storage, path))
+    //     filesData.push(snapshot)
+    //     console.log(filesData)
+    // }
+    // return filesData
 }
 
 export { getFileFromStorage, getFilesFromStorage }

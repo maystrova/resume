@@ -13,6 +13,7 @@ export enum TRANSLATE_KEYS {
     PHOTO = 'photos',
     PROJECTS = 'projects',
     BIOGRAPHY = 'biography',
+    PERFORMANCES = 'performances',
 }
 
 type Translate = {
@@ -28,6 +29,7 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.PHOTO, translate: 'Галерея' },
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Проекты' },
     { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyRu },
+    { key: TRANSLATE_KEYS.PERFORMANCES, translate: 'Ближайшие выступления' },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -38,6 +40,7 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.PHOTO, translate: 'Photos' },
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Projects' },
     { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyEn },
+    { key: TRANSLATE_KEYS.PERFORMANCES, translate: 'Upcoming performances' },
 ]
 
 const tr = (key: string, currentLang: LANGUAGE): string => {

@@ -1,10 +1,20 @@
+$small: 480px;
+$medium: 768px;
+$big: 1024px;
+$large: 1280px;
+
 .container {
-    width: 300px;
+    width: 100%;
     border-radius: 5px;
     background: #232323;
     padding: 10px;
     display: grid;
     gap: 20px;
+
+    @media (min-width: $medium) {
+        max-width: $large;
+        width: 300px;
+    }
 }
 
 .photo {

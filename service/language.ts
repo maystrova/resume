@@ -11,6 +11,7 @@ export enum TRANSLATE_KEYS {
     HOME = 'home',
     ABOUT = 'about',
     PHOTO = 'photos',
+    MEDIA = 'media',
     PROJECTS = 'projects',
     BIOGRAPHY = 'biography',
     PERFORMANCES = 'performances',
@@ -30,6 +31,7 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Проекты' },
     { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyRu },
     { key: TRANSLATE_KEYS.PERFORMANCES, translate: 'Ближайшие выступления' },
+    { key: TRANSLATE_KEYS.MEDIA, translate: 'Медиа' },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -41,6 +43,7 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.PROJECTS, translate: 'Projects' },
     { key: TRANSLATE_KEYS.BIOGRAPHY, translate: biographyEn },
     { key: TRANSLATE_KEYS.PERFORMANCES, translate: 'Upcoming performances' },
+    { key: TRANSLATE_KEYS.MEDIA, translate: 'Media' },
 ]
 
 const tr = (key: string, currentLang: LANGUAGE): string => {

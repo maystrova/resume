@@ -65,6 +65,7 @@ const Header = ({}: HeaderProps) => {
         { title: tr('home', store.currentLang), id: 1, href: '/' },
         { title: tr('about', store.currentLang), id: 2, href: '/about' },
         { title: tr('photos', store.currentLang), id: 3, href: '/photos' },
+        { title: tr('media', store.currentLang), id: 5, href: '/media' },
         { title: tr('projects', store.currentLang), id: 4, href: '/projects' },
     ]
 

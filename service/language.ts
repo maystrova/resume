@@ -16,6 +16,7 @@ export enum TRANSLATE_KEYS {
     BIOGRAPHY = 'biography',
     PERFORMANCES = 'performances',
     TALKS = 'talks',
+    RACHMANINOFF = 'rachmaninoff',
 }
 
 type Translate = {
@@ -34,6 +35,10 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.PERFORMANCES, translate: 'Ближайшие выступления' },
     { key: TRANSLATE_KEYS.MEDIA, translate: 'Медиа' },
     { key: TRANSLATE_KEYS.TALKS, translate: 'Разговоры за клавиром' },
+    {
+        key: TRANSLATE_KEYS.RACHMANINOFF,
+        translate: 'С.Рахманинов, прелюдия соль-диез минор, op. 32 №12',
+    },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -47,6 +52,10 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.PERFORMANCES, translate: 'Upcoming performances' },
     { key: TRANSLATE_KEYS.MEDIA, translate: 'Media' },
     { key: TRANSLATE_KEYS.TALKS, translate: 'Clavier talks' },
+    {
+        key: TRANSLATE_KEYS.RACHMANINOFF,
+        translate: 'Rachmaninoff S. Prelude gis-moll op. 32 №12',
+    },
 ]
 
 const tr = (key: string, currentLang: LANGUAGE): string => {

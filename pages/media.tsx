@@ -23,26 +23,35 @@ const MediaPage = ({}: MediaPageProps) => {
             title: tr('rachmaninoff', store.currentLang),
         },
         {
-            src: 'https://www.youtube.com/embed/c3hDNY5g4Ho',
-            id: 2,
-            title: tr('rachmaninoff', store.currentLang),
+            src: 'https://www.youtube.com/embed/ToEOCVISoeA',
+            id: 3,
+            title: tr('shnitke', store.currentLang),
         },
         {
-            src: 'https://www.youtube.com/embed/c3hDNY5g4Ho',
-            id: 2,
-            title: tr('rachmaninoff', store.currentLang),
+            src: 'https://www.youtube.com/embed/jptEIwT4C14',
+            id: 4,
+            title: tr('program', store.currentLang),
         },
         {
-            src: 'https://www.youtube.com/embed/c3hDNY5g4Ho',
-            id: 2,
-            title: tr('rachmaninoff', store.currentLang),
+            src: 'https://www.youtube.com/embed/qpa8mN1jS3Y',
+            id: 5,
+            title: tr('sviridoff', store.currentLang),
         },
         {
-            src: 'https://www.youtube.com/embed/c3hDNY5g4Ho',
-            id: 2,
-            title: tr('rachmaninoff', store.currentLang),
+            src: 'https://www.youtube.com/embed/KdpbL_I5-Wo',
+            id: 6,
+            title: tr('darg', store.currentLang),
         },
-        // { src: 'https://www.youtube.com/embed/9xI4kt90L0Q', id: 2, title:  },
+        {
+            src: 'https://www.youtube.com/embed/ML5KbmbiRAk',
+            id: 7,
+            title: tr('duo', store.currentLang),
+        },
+        {
+            src: 'https://www.youtube.com/embed/9xI4kt90L0Q',
+            id: 8,
+            title: tr('duo2', store.currentLang),
+        },
     ]
     return (
         <Layout>

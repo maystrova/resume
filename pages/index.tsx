@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                     {/*<Image src={profilePhoto} width={200} height={200} />*/}
                 </div>
                 <div className={styles.performances}>
-                    <h2 className={styles.performances__title}>{performancesTitle}</h2>
+                    <div className={styles.performances__title}>{performancesTitle}</div>
                     <PerformancePreview src={'/static/homePagePhoto1.PNG'}>
                         <div>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut culpa

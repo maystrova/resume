@@ -1,0 +1,35 @@
+$small: 480px;
+$medium: 768px;
+$big: 1024px;
+$large: 1280px;
+
+.container {
+    display: grid;
+    row-gap: 40px;
+    padding: 40px 0;
+    justify-content: center;
+
+    @media (min-width: $medium) {
+        max-width: $big;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $big) {
+        max-width: $large;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.preview {
+    display: grid;
+    gap: 10px;
+    max-width: min-content;
+    justify-self: center;
+}
+
+.preview__title {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: #bab2b2;
+}

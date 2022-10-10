@@ -19,6 +19,9 @@ $width: 1280px;
 }
 
 .performances {
+    padding: 10px;
+    display: grid;
+    grid-gap: 50px;
 }
 
 .performances__title {

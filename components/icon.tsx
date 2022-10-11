@@ -1,6 +1,7 @@
 import style from 'styles/icon.module.scss'
 
 export enum ICON_SIZE {
+    X_SMALL = 'x-small',
     SMALL = 'small',
     MEDIUM = 'medium',
 }
@@ -17,6 +18,8 @@ const iconSizeHandler = (size: ICON_SIZE): string => {
             return style.small
         case ICON_SIZE.MEDIUM:
             return style.medium
+        case ICON_SIZE.X_SMALL:
+            return style.x_small
     }
     return style.small
 }

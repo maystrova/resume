@@ -20,11 +20,20 @@
     align-items: center;
     gap: 5px;
     font-size: 12px;
+    cursor: pointer;
+    position: relative;
 }
 
 .email {
     margin-right: 10px;
 }
 
-.copy {
+.copy_success {
+    position: absolute;
+    right: -25%;
+    opacity: 70%;
+}
+
+.hide {
+    display: none;
 }

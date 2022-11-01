@@ -3,15 +3,11 @@ import styles from 'styles/photoPreview.module.scss'
 
 interface PhotoPreviewProps {
     onClick: () => void
-    src: string
+    style: any
 }
 
-const PhotoPreview = ({ onClick, src }: PhotoPreviewProps) => {
-    return (
-        <div className={styles.container} onClick={onClick}>
-            <img src={src} alt="image" />
-        </div>
-    )
+const PhotoPreview = ({ onClick, style }: PhotoPreviewProps) => {
+    return <div className={styles.container} onClick={onClick} style={style}></div>
 }
 
 export default PhotoPreview

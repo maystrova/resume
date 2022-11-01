@@ -1,18 +1,19 @@
+import { useEffect, useState } from 'react'
+
 import Layout from 'components/layout'
 import PhotoPreview from 'components/photoPreview'
-import styles from 'styles/photos.module.scss'
-import { useEffect, useState } from 'react'
 import ModalWindow from 'components/modal'
+
+import { getFileFromStorage } from 'service/storage'
 import { Photo } from 'service/type'
-import { getFileFromStorage } from '../service/storage'
 
-interface PhotosPageProps {}
+import styles from 'styles/photos.module.scss'
 
-const PhotosPage = ({}: PhotosPageProps) => {
+const PhotosPage = () => {
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
     const [paths, setPaths] = useState<string[]>([])
 
-    const ppaths: string[] = [
+    const preparedPaths: string[] = [
         '/IMG_0838.PNG',
         '/IMG_0841.PNG',
         '/IMG_1518.JPG',
@@ -21,16 +22,16 @@ const PhotosPage = ({}: PhotosPageProps) => {
     ]
 
     const downloadPaths = async () => {
-        let pss: string[] = []
+        let downloadedPaths: string[] = []
 
         try {
-            for (let path of ppaths) {
+            for (let path of preparedPaths) {
                 const ps = await getFileFromStorage(path)
                 if (ps) {
-                    pss.push(ps)
+                    downloadedPaths.push(ps)
                 }
             }
-            setPaths(pss)
+            setPaths(downloadedPaths)
         } catch (error) {
             console.error('downloadPaths', error)
         }
@@ -41,11 +42,11 @@ const PhotosPage = ({}: PhotosPageProps) => {
     }, [])
 
     const PHOTOS: Photo[] = [
-        {
-            src: paths[0],
-            id: 1,
-        },
-        { src: paths[1], id: 2 },
+        { src: paths[0], id: 0 },
+        { src: paths[1], id: 1 },
+        { src: paths[2], id: 2 },
+        { src: paths[3], id: 3 },
+        { src: paths[4], id: 4 },
     ]
 
     return (
@@ -57,7 +58,7 @@ const PhotosPage = ({}: PhotosPageProps) => {
                             <PhotoPreview
                                 key={photo.id}
                                 onClick={() => setModalIsOpen(true)}
-                                src={photo.src}
+                                style={{ backgroundImage: `url("${photo.src}")` }}
                             />
                             {modalIsOpen && (
                                 <ModalWindow

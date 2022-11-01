@@ -12,6 +12,7 @@ import styles from 'styles/photos.module.scss'
 const PhotosPage = () => {
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
     const [paths, setPaths] = useState<string[]>([])
+    const [currentPhoto, setCurrentPhoto] = useState<string>('')
 
     const preparedPaths: string[] = [
         '/IMG_0838.PNG',
@@ -57,7 +58,10 @@ const PhotosPage = () => {
                         <div key={photo.id}>
                             <PhotoPreview
                                 key={photo.id}
-                                onClick={() => setModalIsOpen(true)}
+                                onClick={() => {
+                                    setModalIsOpen(true)
+                                    setCurrentPhoto(photo.src)
+                                }}
                                 style={{ backgroundImage: `url("${photo.src}")` }}
                             />
                             {modalIsOpen && (
@@ -65,15 +69,9 @@ const PhotosPage = () => {
                                     isOpen={modalIsOpen}
                                     onCancel={() => setModalIsOpen(false)}
                                 >
-                                    {
-                                        <div>
-                                            <img
-                                                className={styles.main}
-                                                src={photo.src}
-                                                alt="img"
-                                            />
-                                        </div>
-                                    }
+                                    <div key={photo.id}>
+                                        <img className={styles.main} src={currentPhoto} alt="img" />
+                                    </div>
                                 </ModalWindow>
                             )}
                         </div>

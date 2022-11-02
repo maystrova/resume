@@ -1,6 +1,8 @@
-import Icon, { ICON_SIZE } from 'components/icon'
-import styles from 'styles/footer.module.scss'
 import { useState } from 'react'
+
+import Icon, { ICON_SIZE } from 'components/icon'
+
+import styles from 'styles/footer.module.scss'
 
 interface FooterProps {}
 
@@ -24,7 +26,7 @@ const Footer = ({}: FooterProps) => {
             })
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.footer} id={'footer'}>
             <div className={styles.main}>
                 <div className={styles.logo}>
                     {new Date().getFullYear()} {name}

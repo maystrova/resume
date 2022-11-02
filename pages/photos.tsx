@@ -9,10 +9,12 @@ import { Photo } from 'service/type'
 
 import styles from 'styles/photos.module.scss'
 
-const PhotosPage = () => {
-    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
+interface PhotosPageProps {}
+
+const PhotosPage = ({}: PhotosPageProps) => {
     const [paths, setPaths] = useState<string[]>([])
-    const [currentPhoto, setCurrentPhoto] = useState<string>('')
+    const [currentPhoto, setCurrentPhoto] = useState<Photo | null>(null)
+    const modalIsOpen = currentPhoto != null
 
     const preparedPaths: string[] = [
         '/IMG_0838.PNG',
@@ -23,9 +25,8 @@ const PhotosPage = () => {
     ]
 
     const downloadPaths = async () => {
-        let downloadedPaths: string[] = []
-
         try {
+            let downloadedPaths: string[] = []
             for (let path of preparedPaths) {
                 const ps = await getFileFromStorage(path)
                 if (ps) {
@@ -50,32 +51,44 @@ const PhotosPage = () => {
         { src: paths[4], id: 4 },
     ]
 
-    const slidesCount: number = preparedPaths.length
-    let activeSlideIndex = 0
-
     const changeSlide = (direction: string) => {
+        console.log('direction', direction)
         if (direction === 'right') {
-            activeSlideIndex++
-            if (activeSlideIndex === slidesCount) {
-                activeSlideIndex = 0
+            if (currentPhoto) {
+                const currentIndexPhoto = PHOTOS.findIndex(photo => photo.id === currentPhoto.id)
+                setCurrentPhoto(
+                    currentIndexPhoto === PHOTOS.length - 1
+                        ? PHOTOS[0]
+                        : PHOTOS[currentIndexPhoto + 1],
+                )
             }
         } else if (direction === 'left') {
-            activeSlideIndex--
-            if (activeSlideIndex < 0) {
-                activeSlideIndex = slidesCount - 1
+            if (currentPhoto) {
+                const currentIndexPhoto = PHOTOS.findIndex(photo => photo.id === currentPhoto.id)
+                setCurrentPhoto(
+                    currentIndexPhoto === 0
+                        ? PHOTOS[PHOTOS.length - 1]
+                        : PHOTOS[currentIndexPhoto - 1],
+                )
             }
         }
     }
 
+    const handleKeydown = (event: KeyboardEvent) => {
+        if (event.key === 'ArrowRight') {
+            changeSlide('right')
+        } else if (event.key === 'ArrowLeft') {
+            changeSlide('left')
+        }
+    }
+
     useEffect(() => {
-        document.addEventListener('keydown', event => {
-            if (event.key === 'ArrowRight') {
-                changeSlide('right')
-            } else if (event.key === 'ArrowLeft') {
-                changeSlide('left')
-            }
-        })
-    }, [])
+        window.addEventListener('keydown', handleKeydown)
+
+        return () => {
+            window.removeEventListener('keydown', handleKeydown)
+        }
+    })
 
     return (
         <Layout>
@@ -86,25 +99,21 @@ const PhotosPage = () => {
                             <PhotoPreview
                                 key={photo.id}
                                 onClick={() => {
-                                    setModalIsOpen(true)
-                                    setCurrentPhoto(photo.src)
+                                    setCurrentPhoto(photo)
                                 }}
                                 style={{ backgroundImage: `url("${photo.src}")` }}
                             />
-                            {modalIsOpen && (
-                                <ModalWindow
-                                    isOpen={modalIsOpen}
-                                    onCancel={() => setModalIsOpen(false)}
-                                >
-                                    <div key={photo.id}>
-                                        <img className={styles.main} src={currentPhoto} alt="img" />
-                                    </div>
-                                </ModalWindow>
-                            )}
                         </div>
                     )
                 })}
             </div>
+            {modalIsOpen && (
+                <ModalWindow isOpen={modalIsOpen} onCancel={() => setCurrentPhoto(null)}>
+                    <div>
+                        <img className={styles.main} src={currentPhoto.src} alt="img" />
+                    </div>
+                </ModalWindow>
+            )}
         </Layout>
     )
 }

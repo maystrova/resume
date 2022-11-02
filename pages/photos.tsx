@@ -50,6 +50,33 @@ const PhotosPage = () => {
         { src: paths[4], id: 4 },
     ]
 
+    const slidesCount: number = preparedPaths.length
+    let activeSlideIndex = 0
+
+    const changeSlide = (direction: string) => {
+        if (direction === 'right') {
+            activeSlideIndex++
+            if (activeSlideIndex === slidesCount) {
+                activeSlideIndex = 0
+            }
+        } else if (direction === 'left') {
+            activeSlideIndex--
+            if (activeSlideIndex < 0) {
+                activeSlideIndex = slidesCount - 1
+            }
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', event => {
+            if (event.key === 'ArrowRight') {
+                changeSlide('right')
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide('left')
+            }
+        })
+    }, [])
+
     return (
         <Layout>
             <div className={styles.container}>

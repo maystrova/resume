@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from 'styles/modal.module.scss'
-import Icon, { ICON_SIZE } from './icon'
-import Button, { BUTTON_TYPE } from './button'
+import Icon, { ICON_SIZE } from 'components/icon'
+import Button, { BUTTON_TYPE } from 'components/button'
 
 interface ModalWindowProps {
     isOpen: boolean

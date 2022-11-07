@@ -92,7 +92,7 @@ const PhotosPage = ({}: PhotosPageProps) => {
 
     return (
         <Layout>
-            <div className={styles.container}>
+            <div className={styles.photos}>
                 {PHOTOS.map(photo => {
                     return (
                         <div key={photo.id}>

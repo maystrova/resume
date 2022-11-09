@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Layout from 'components/layout'
 import PhotoPreview from 'components/photoPreview'
@@ -8,6 +8,8 @@ import { getFileFromStorage } from 'service/storage'
 import { Photo } from 'service/type'
 
 import styles from 'styles/photos.module.scss'
+import Button, { BUTTON_TYPE } from '../components/button'
+import Icon, { ICON_SIZE } from '../components/icon'
 
 interface PhotosPageProps {}
 
@@ -52,7 +54,6 @@ const PhotosPage = ({}: PhotosPageProps) => {
     ]
 
     const changeSlide = (direction: string) => {
-        console.log('direction', direction)
         if (direction === 'right') {
             if (currentPhoto) {
                 const currentIndexPhoto = PHOTOS.findIndex(photo => photo.id === currentPhoto.id)
@@ -110,7 +111,29 @@ const PhotosPage = ({}: PhotosPageProps) => {
             {modalIsOpen && (
                 <ModalWindow isOpen={modalIsOpen} onCancel={() => setCurrentPhoto(null)}>
                     <div>
-                        <img className={styles.main} src={currentPhoto.src} alt="img" />
+                        <Button
+                            onClick={() => changeSlide('left')}
+                            btnType={BUTTON_TYPE.NAVIGATION}
+                        >
+                            <Icon
+                                src={'static/left-icon.svg'}
+                                alt={'back'}
+                                size={ICON_SIZE.LARGE}
+                            />
+                        </Button>
+                        <div>
+                            <img className={styles.main} src={currentPhoto.src} alt="img" />
+                        </div>
+                        <Button
+                            onClick={() => changeSlide('right')}
+                            btnType={BUTTON_TYPE.NAVIGATION}
+                        >
+                            <Icon
+                                src={'static/right-icon.svg'}
+                                alt={'forward'}
+                                size={ICON_SIZE.LARGE}
+                            />
+                        </Button>
                     </div>
                 </ModalWindow>
             )}

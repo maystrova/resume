@@ -25,3 +25,19 @@ $large: 1280px;
     width: 100%;
     max-height: 90vh;
 }
+
+.button_right {
+    position: fixed;
+    right: 10%;
+    top: 45%;
+}
+
+.button_left {
+    position: fixed;
+    left: 10%;
+    top: 45%;
+}
+
+.slider {
+    position: relative;
+}

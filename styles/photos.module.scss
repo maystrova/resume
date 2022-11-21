@@ -12,7 +12,7 @@ $large: 1280px;
 
     @media (min-width: $medium) {
         max-width: $big;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media (min-width: $big) {
@@ -48,6 +48,12 @@ $large: 1280px;
         left: 10%;
         top: 45%;
     }
+}
+
+.photoPreview_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider {

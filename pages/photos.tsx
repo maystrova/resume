@@ -96,7 +96,7 @@ const PhotosPage = ({}: PhotosPageProps) => {
             <div className={styles.photos}>
                 {PHOTOS.map(photo => {
                     return (
-                        <div key={photo.id}>
+                        <div key={photo.id} className={styles.photoPreview_wrapper}>
                             <PhotoPreview
                                 key={photo.id}
                                 onClick={() => {

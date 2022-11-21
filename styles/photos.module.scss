@@ -3,7 +3,7 @@ $medium: 768px;
 $big: 1024px;
 $large: 1280px;
 
-.container {
+.photos {
     display: grid;
     margin: 0 auto;
     grid-template-columns: 1fr;
@@ -12,7 +12,7 @@ $large: 1280px;
 
     @media (min-width: $medium) {
         max-width: $big;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media (min-width: $big) {
@@ -24,4 +24,38 @@ $large: 1280px;
 .main {
     width: 100%;
     max-height: 90vh;
+}
+
+.button_right {
+    position: fixed;
+    right: 5%;
+    top: 50%;
+
+    @media (min-width: $medium) {
+        max-width: $large;
+        right: 10%;
+        top: 45%;
+    }
+}
+
+.button_left {
+    position: fixed;
+    left: 5%;
+    top: 50%;
+
+    @media (min-width: $medium) {
+        max-width: $large;
+        left: 10%;
+        top: 45%;
+    }
+}
+
+.photoPreview_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    position: relative;
 }

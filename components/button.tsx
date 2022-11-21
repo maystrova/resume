@@ -5,6 +5,7 @@ export enum BUTTON_TYPE {
     LANG_CHANGE = 'lang',
     SOCIAL_MEDIA = 'socialMedia',
     CLOSE_WINDOW = 'closeWindow',
+    NAVIGATION = 'navigation',
 }
 
 interface ButtonProps {
@@ -21,6 +22,8 @@ const buttonTypeHandler = (type: BUTTON_TYPE): string => {
             return style.socialMedia
         case BUTTON_TYPE.CLOSE_WINDOW:
             return style.close
+        case BUTTON_TYPE.NAVIGATION:
+            return style.navigation
     }
 }
 

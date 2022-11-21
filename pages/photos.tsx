@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Layout from 'components/layout'
 import PhotoPreview from 'components/photoPreview'
 import ModalWindow from 'components/modal'
+import Button, { BUTTON_TYPE } from 'components/button'
+import Icon, { ICON_SIZE } from 'components/icon'
 
 import { getFileFromStorage } from 'service/storage'
 import { Photo } from 'service/type'
@@ -52,7 +54,6 @@ const PhotosPage = ({}: PhotosPageProps) => {
     ]
 
     const changeSlide = (direction: string) => {
-        console.log('direction', direction)
         if (direction === 'right') {
             if (currentPhoto) {
                 const currentIndexPhoto = PHOTOS.findIndex(photo => photo.id === currentPhoto.id)
@@ -92,10 +93,10 @@ const PhotosPage = ({}: PhotosPageProps) => {
 
     return (
         <Layout>
-            <div className={styles.container}>
+            <div className={styles.photos}>
                 {PHOTOS.map(photo => {
                     return (
-                        <div key={photo.id}>
+                        <div key={photo.id} className={styles.photoPreview_wrapper}>
                             <PhotoPreview
                                 key={photo.id}
                                 onClick={() => {
@@ -109,8 +110,35 @@ const PhotosPage = ({}: PhotosPageProps) => {
             </div>
             {modalIsOpen && (
                 <ModalWindow isOpen={modalIsOpen} onCancel={() => setCurrentPhoto(null)}>
-                    <div>
-                        <img className={styles.main} src={currentPhoto.src} alt="img" />
+                    <div className={styles.slider}>
+                        <div className={styles.button_left}>
+                            <Button
+                                onClick={() => changeSlide('left')}
+                                btnType={BUTTON_TYPE.NAVIGATION}
+                            >
+                                <Icon
+                                    src={'static/left-icon.svg'}
+                                    alt={'back'}
+                                    size={ICON_SIZE.LARGE}
+                                />
+                            </Button>
+                        </div>
+
+                        <div>
+                            <img className={styles.main} src={currentPhoto.src} alt="img" />
+                        </div>
+                        <div className={styles.button_right}>
+                            <Button
+                                onClick={() => changeSlide('right')}
+                                btnType={BUTTON_TYPE.NAVIGATION}
+                            >
+                                <Icon
+                                    src={'static/right-icon.svg'}
+                                    alt={'forward'}
+                                    size={ICON_SIZE.LARGE}
+                                />
+                            </Button>
+                        </div>
                     </div>
                 </ModalWindow>
             )}

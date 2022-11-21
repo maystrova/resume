@@ -7,7 +7,7 @@ interface PhotoPreviewProps {
 }
 
 const PhotoPreview = ({ onClick, style }: PhotoPreviewProps) => {
-    return <div className={styles.container} onClick={onClick} style={style}></div>
+    return <div className={styles.photoPreview} onClick={onClick} style={style}></div>
 }
 
 export default PhotoPreview

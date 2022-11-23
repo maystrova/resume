@@ -1,14 +1,15 @@
-import type { NextPage } from 'next'
-import Layout from 'components/layout'
 import React, { useContext, useEffect, useState } from 'react'
-import { getFileFromStorage, getFilesFromStorage } from 'service/storage'
+import type { NextPage } from 'next'
+
+import { ResumeContext } from 'context/storeContext'
+
+import Layout from 'components/layout'
+import PerformancePreview from 'components/perfomancePreview'
+
+import { getFileFromStorage } from 'service/storage'
+import { tr } from 'service/language'
+
 import styles from 'styles/homePage.module.scss'
-import Image from 'next/image'
-import { storage } from '../service/firebase'
-import { tr } from '../service/language'
-import { ResumeContext } from '../context/storeContext'
-import PhotoPreview from '../components/photoPreview'
-import PerformancePreview from '../components/perfomancePreview'
 
 const Home: NextPage = () => {
     const [profilePhoto, setProfilePhoto] = useState<string>('')

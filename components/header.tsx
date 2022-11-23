@@ -2,11 +2,11 @@ import styles from 'styles/header.module.scss'
 import { CONFIG } from 'service/config'
 import Icon, { ICON_SIZE } from 'components/icon'
 import Button, { BUTTON_TYPE } from 'components/button'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { ResumeContext } from 'context/storeContext'
-import { ACTION } from 'context/actions'
 import { LANGUAGE, tr } from 'service/language'
 import Link from 'next/link'
+import { ACTION } from '../context/actions'
 
 interface HeaderProps {}
 
@@ -31,7 +31,7 @@ interface LangChangeMenu {
 
 const Header = ({}: HeaderProps) => {
     const { store, dispatch } = useContext(ResumeContext)
-    const [langBtn, setLangBtn] = useState<boolean>(false)
+    const [langBtn, setLangBtn] = useState<LANGUAGE>(LANGUAGE.RU)
 
     const SOCIAL_MEDIA_BUTTONS: SocialMediaLinks[] = [
         {
@@ -84,6 +84,8 @@ const Header = ({}: HeaderProps) => {
 
     const name: string = tr('name', store.currentLang)
     const prof: string = tr('prof', store.currentLang)
+    const ru = 'Ru'
+    const en = 'En'
 
     return (
         <div className={styles.container}>
@@ -126,9 +128,12 @@ const Header = ({}: HeaderProps) => {
                             onClick={() => {
                                 dispatch({ action: ACTION.SET_LANGUAGE, data: item.langValue })
                                 localStorage.setItem('currentLang', item.langValue)
+                                setLangBtn(item.langValue)
                             }}
                         >
-                            <span>{item.title}</span>
+                            <span style={{ display: 'none' }}>
+                                {langBtn === LANGUAGE.RU ? en : ru}
+                            </span>
                         </Button>
                     )
                 })}

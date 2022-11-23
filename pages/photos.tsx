@@ -16,6 +16,7 @@ interface PhotosPageProps {}
 const PhotosPage = ({}: PhotosPageProps) => {
     const [paths, setPaths] = useState<string[]>([])
     const [currentPhoto, setCurrentPhoto] = useState<Photo | null>(null)
+    const [modal, setModal] = useState<boolean>(false)
     const modalIsOpen = currentPhoto != null
 
     const preparedPaths: string[] = [
@@ -80,6 +81,8 @@ const PhotosPage = ({}: PhotosPageProps) => {
             changeSlide('right')
         } else if (event.key === 'ArrowLeft') {
             changeSlide('left')
+        } else if (event.key === 'Escape') {
+            setCurrentPhoto(null)
         }
     }
 

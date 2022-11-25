@@ -31,7 +31,7 @@ interface LangChangeMenu {
 
 const Header = ({}: HeaderProps) => {
     const { store, dispatch } = useContext(ResumeContext)
-    const [langBtn, setLangBtn] = useState<LANGUAGE>(LANGUAGE.RU)
+    const [activeBtn, setActiveBtn] = useState<boolean>(false)
 
     const SOCIAL_MEDIA_BUTTONS: SocialMediaLinks[] = [
         {
@@ -84,8 +84,6 @@ const Header = ({}: HeaderProps) => {
 
     const name: string = tr('name', store.currentLang)
     const prof: string = tr('prof', store.currentLang)
-    const ru = 'Ru'
-    const en = 'En'
 
     return (
         <div className={styles.container}>
@@ -128,12 +126,9 @@ const Header = ({}: HeaderProps) => {
                             onClick={() => {
                                 dispatch({ action: ACTION.SET_LANGUAGE, data: item.langValue })
                                 localStorage.setItem('currentLang', item.langValue)
-                                setLangBtn(item.langValue)
                             }}
                         >
-                            <span style={{ display: 'none' }}>
-                                {langBtn === LANGUAGE.RU ? en : ru}
-                            </span>
+                            <span className={styles.langBtn}>{item.title}</span>
                         </Button>
                     )
                 })}

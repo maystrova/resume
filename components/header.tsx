@@ -6,7 +6,7 @@ import { useContext, useState } from 'react'
 import { ResumeContext } from 'context/storeContext'
 import { LANGUAGE, tr } from 'service/language'
 import Link from 'next/link'
-import { ACTION } from '../context/actions'
+import { ACTION } from 'context/actions'
 
 interface HeaderProps {}
 
@@ -27,11 +27,13 @@ interface LangChangeMenu {
     title: string
     id: number
     langValue: LANGUAGE
+    isActive: boolean
 }
 
 const Header = ({}: HeaderProps) => {
     const { store, dispatch } = useContext(ResumeContext)
-    const [activeBtn, setActiveBtn] = useState<boolean>(false)
+    const [isRuBtnActive, setRuBtnActive] = useState<boolean>(false)
+    const [isEnBtnActive, setEnBtnActive] = useState<boolean>(true)
 
     const SOCIAL_MEDIA_BUTTONS: SocialMediaLinks[] = [
         {
@@ -74,11 +76,13 @@ const Header = ({}: HeaderProps) => {
             title: 'Ru',
             id: 1,
             langValue: LANGUAGE.RU,
+            isActive: isRuBtnActive,
         },
         {
             title: 'En',
             id: 2,
             langValue: LANGUAGE.EN,
+            isActive: isEnBtnActive,
         },
     ]
 
@@ -126,9 +130,13 @@ const Header = ({}: HeaderProps) => {
                             onClick={() => {
                                 dispatch({ action: ACTION.SET_LANGUAGE, data: item.langValue })
                                 localStorage.setItem('currentLang', item.langValue)
+                                setRuBtnActive(!isRuBtnActive)
+                                setEnBtnActive(!isEnBtnActive)
+                                console.log('ru', isRuBtnActive)
+                                console.log('en', isEnBtnActive)
                             }}
                         >
-                            <span className={styles.langBtn}>{item.title}</span>
+                            <span>{item.title}</span>
                         </Button>
                     )
                 })}

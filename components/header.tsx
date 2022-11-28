@@ -136,7 +136,9 @@ const Header = ({}: HeaderProps) => {
                                 console.log('en', isEnBtnActive)
                             }}
                         >
-                            <span>{item.title}</span>
+                            <span className={item.isActive ? styles.active : styles.hide}>
+                                {item.title}
+                            </span>
                         </Button>
                     )
                 })}
